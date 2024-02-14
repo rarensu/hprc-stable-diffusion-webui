@@ -3,14 +3,17 @@
 # Uncomment and change the variables below to your need:#
 #########################################################
 
+#module load GCC/10.3.0 OpenMPI/4.1.1 PyTorch/1.12.1-CUDA-11.3.1 torchvision 
+#git CMake
+
 # Install directory without trailing slash
-#install_dir="/home/$(whoami)"
+install_dir="$SCRATCH"
 
 # Name of the subdirectory
 #clone_dir="stable-diffusion-webui"
 
 # Commandline arguments for webui.py, for example: export COMMANDLINE_ARGS="--medvram --opt-split-attention"
-#export COMMANDLINE_ARGS=""
+export COMMANDLINE_ARGS="--ckpt /sw/hprc/sw/StableDiffusion/v1-5-pruned-emaonly.ckpt $LAN_CMD_ARGS"
 
 # python3 executable
 #python_cmd="python3"
@@ -20,6 +23,7 @@
 
 # python3 venv without trailing slash (defaults to ${install_dir}/${clone_dir}/venv)
 #venv_dir="venv"
+venv_dir="-"
 
 # script to launch to start the app
 #export LAUNCH_SCRIPT="launch.py"
@@ -36,8 +40,9 @@
 
 # Fixed git commits
 #export STABLE_DIFFUSION_COMMIT_HASH=""
-#export CODEFORMER_COMMIT_HASH=""
+export CODEFORMER_COMMIT_HASH="14746a4"
 #export BLIP_COMMIT_HASH=""
+export CODEFORMER_REPO="https://github.com/soulteary/CodeFormer.git"
 
 # Uncomment to enable accelerated launch
 #export ACCELERATE="True"
