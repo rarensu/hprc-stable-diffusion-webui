@@ -16,7 +16,8 @@ install_dir="$SCRATCH"
 export COMMANDLINE_ARGS="--ckpt /sw/hprc/sw/StableDiffusion/v1-5-pruned-emaonly.ckpt $LAN_CMD_ARGS"
 
 # python3 executable
-#python_cmd="python3"
+python_cmd="/usr/bin/python3.10"
+export PYTHONNOUSERSITE=TRUE
 
 # git executable
 #export GIT="git"
