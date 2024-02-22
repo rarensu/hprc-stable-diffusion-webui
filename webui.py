@@ -47,7 +47,8 @@ def api_only():
 
 def webui():
     from modules.shared_cmd_options import cmd_opts
-
+    os.environ.pop('http_proxy', None)
+    os.environ.pop('https_proxy', None)
     launch_api = cmd_opts.api
     initialize.initialize()
 
