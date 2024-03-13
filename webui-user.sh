@@ -14,10 +14,10 @@ install_dir="$SCRATCH"
 
 # Commandline arguments for webui.py, for example: export COMMANDLINE_ARGS="--medvram --opt-split-attention"
 export SD_ROOT="/sw/hprc/sw/StableDiffusion/2024.02"
-export COMMANDLINE_ARGS="--ckpt $SD_ROOT/v1-5-pruned-emaonly.ckpt $LAN_CMD_ARGS"
+export COMMANDLINE_ARGS="--ckpt $SD_ROOT/v1-5-pruned-emaonly.ckpt $LAN_CMD_ARGS --enable-insecure-extension-access"
 
 # python3 executable
-python_cmd="/usr/bin/python3.10"
+python_cmd="python3.10"
 export PYTHONNOUSERSITE=TRUE
 
 # git executable
@@ -25,7 +25,6 @@ export PYTHONNOUSERSITE=TRUE
 
 # python3 venv without trailing slash (defaults to ${install_dir}/${clone_dir}/venv)
 #venv_dir="venv"
-venv_dir="-"
 
 # script to launch to start the app
 #export LAUNCH_SCRIPT="launch.py"
