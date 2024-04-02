@@ -10,7 +10,7 @@ function close_window() {
 
     document.body.innerHTML = ''
     var messageDiv = document.createElement('div');
-    messageDiv.textContent = 'You may close this window.<br>This window may close automatically after a few seconds.';
+    messageDiv.textContent = 'You may close this window. This window may close automatically after a few seconds.';
     messageDiv.style.display = 'flex';
     messageDiv.style.alignItems = 'center';
     messageDiv.style.justifyContent = 'center';
