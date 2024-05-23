@@ -14,7 +14,8 @@ install_dir="$SCRATCH"
 
 # Commandline arguments for webui.py, for example: export COMMANDLINE_ARGS="--medvram --opt-split-attention"
 export SD_ROOT="/sw/hprc/sw/StableDiffusion/2024.02"
-export COMMANDLINE_ARGS="--ckpt $SD_ROOT/v1-5-pruned-emaonly.ckpt $LAN_CMD_ARGS --enable-insecure-extension-access"
+export COMMANDLINE_ARGS="--ckpt $SD_ROOT/v1-5-pruned-emaonly.ckpt $LAN_CMD_ARGS"
+# previous included "--enable-insecure-extension-access"
 
 # python3 executable
 python_cmd="python3.10"
