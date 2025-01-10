@@ -207,7 +207,7 @@ else
     if [[ -n "$LINK_THIS_MODEL" ]]
     then
         local model_path=$(readlink -e $SD_ROOT/$LINK_THIS_MODEL)
-        ln -s $model_path models/Stable-diffusion/$LINK_THIS_MODEL
+        ln -s $model_path models/$LINK_THIS_MODEL
     fi
 fi
 
