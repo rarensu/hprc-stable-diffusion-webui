@@ -117,7 +117,7 @@ then
     exit 1
 fi
 
-if [[ -d "$SCRIPT_DIR/.git" ]]
+if false # was: if [[ -d "$SCRIPT_DIR/.git" ]]
 then
     printf "\n%s\n" "${delimiter}"
     printf "Repo already cloned, using it as install directory"
@@ -201,8 +201,9 @@ else
     printf "\n%s\n" "${delimiter}"
     printf "Clone stable-diffusion-webui"
     printf "\n%s\n" "${delimiter}"
-    "${GIT}" clone https://github.com/AUTOMATIC1111/stable-diffusion-webui.git "${clone_dir}"
+    "${GIT}" clone $SCRIPT_DIR "${clone_dir}"
     cd "${clone_dir}"/ || { printf "\e[1m\e[31mERROR: Can't cd to %s/%s/, aborting...\e[0m" "${install_dir}" "${clone_dir}"; exit 1; }
+    git remote set-url origin https://github.com/AUTOMATIC1111/stable-diffusion-webui.git
 fi
 
 if [[ $use_venv -eq 1 ]] && [[ -z "${VIRTUAL_ENV}" ]];
@@ -213,8 +214,8 @@ then
     cd "${install_dir}"/"${clone_dir}"/ || { printf "\e[1m\e[31mERROR: Can't cd to %s/%s/, aborting...\e[0m" "${install_dir}" "${clone_dir}"; exit 1; }
     if [[ ! -d "${venv_dir}" ]]
     then
-        "${python_cmd}" -m venv "${venv_dir}"
-        "${venv_dir}"/bin/python -m pip install --upgrade pip
+        "${python_cmd}" -m venv --system-site-packages "${venv_dir}" 
+        # no upgrade pip # "${venv_dir}"/bin/python -m pip install --upgrade pip
         first_launch=1
     fi
     # shellcheck source=/dev/null

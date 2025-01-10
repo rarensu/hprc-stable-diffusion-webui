@@ -47,7 +47,6 @@ def api_only():
 
 def webui():
     from modules.shared_cmd_options import cmd_opts
-
     launch_api = cmd_opts.api
     initialize.initialize()
 
