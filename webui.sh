@@ -206,7 +206,7 @@ else
     git remote set-url origin https://github.com/AUTOMATIC1111/stable-diffusion-webui.git
     if [[ -n "$LINK_THIS_MODEL" ]]
     then
-        local model_path=$(readlink -e $SD_ROOT/$LINK_THIS_MODEL)
+        local model_path=$(readlink -e /sw/hprc/sw/StableDiffusion/models/$LINK_THIS_MODEL)
         ln -s $model_path models/$LINK_THIS_MODEL
     fi
 fi
