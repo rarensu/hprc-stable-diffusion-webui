@@ -204,6 +204,11 @@ else
     "${GIT}" clone $SCRIPT_DIR "${clone_dir}"
     cd "${clone_dir}"/ || { printf "\e[1m\e[31mERROR: Can't cd to %s/%s/, aborting...\e[0m" "${install_dir}" "${clone_dir}"; exit 1; }
     git remote set-url origin https://github.com/AUTOMATIC1111/stable-diffusion-webui.git
+    if [[ -n "$LINK_THIS_MODEL" ]]
+    then
+        local model_path=$(readlink -e $SD_ROOT/$LINK_THIS_MODEL)
+        ln -s $model_path models/Stable-diffusion/$LINK_THIS_MODEL
+    fi
 fi
 
 if [[ $use_venv -eq 1 ]] && [[ -z "${VIRTUAL_ENV}" ]];
