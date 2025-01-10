@@ -13,7 +13,7 @@ install_dir="$SCRATCH"
 #clone_dir="stable-diffusion-webui"
 
 # Commandline arguments for webui.py, for example: export COMMANDLINE_ARGS="--medvram --opt-split-attention"
-export SD_ROOT="/sw/hprc/sw/StableDiffusion/2024.02"
+export SD_ROOT="/sw/hprc/sw/StableDiffusion/2025.01"
 export COMMANDLINE_ARGS="--ckpt $SD_ROOT/v1-5-pruned-emaonly.ckpt $LAN_CMD_ARGS"
 # previous included "--enable-insecure-extension-access"
 
