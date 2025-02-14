@@ -204,10 +204,19 @@ else
     "${GIT}" clone $SCRIPT_DIR "${clone_dir}"
     cd "${clone_dir}"/ || { printf "\e[1m\e[31mERROR: Can't cd to %s/%s/, aborting...\e[0m" "${install_dir}" "${clone_dir}"; exit 1; }
     git remote set-url origin https://github.com/AUTOMATIC1111/stable-diffusion-webui.git
-    if [[ -n "$LINK_THIS_MODEL" ]]
+    if [[ -n "$LINK_MODELS" ]]
     then
-        model_path=$(readlink -e "$MODELS_ROOT/$LINK_THIS_MODEL")
-        ln -s $model_path models/$LINK_THIS_MODEL
+        echo "Linking models:"
+	for dir in $(cd $MODELS_ROOT; find . -type d)
+	do
+		mkdir -p models/$dir
+	done
+	for file in $(cd $MODELS_ROOT; find . -type f)
+	do
+        	model_path=$(readlink -e "$MODELS_ROOT/$file")
+        	ln -s $model_path models/$file
+		echo "   $file"
+	done
     fi
 fi
 
