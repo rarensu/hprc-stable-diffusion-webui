@@ -29,6 +29,13 @@ def apply_and_restart(disable_list, update_list, disable_all):
     disabled = json.loads(disable_list)
     assert type(disabled) == list, f"wrong disable_list data for apply_and_restart: {disable_list}"
 
+    if 'stable-diffusion-webui-nsfw-censor' in disabled:
+        disabled.remove('stable-diffusion-webui-nsfw-censor')
+        print("Alert! User attempted to disable stable-diffusion-webui-nsfw-censor")
+    if 'prompts-filter' in disabled:
+        disabled.remove('prompts-filter')
+        print("Alert! User attempted to disable prompts-filter")
+
     update = json.loads(update_list)
     assert type(update) == list, f"wrong update_list data for apply_and_restart: {update_list}"
 
@@ -47,6 +54,7 @@ def apply_and_restart(disable_list, update_list, disable_all):
             errors.report(f"Error getting updates for {ext.name}", exc_info=True)
 
     shared.opts.disabled_extensions = disabled
+    disable_all = "extra" if disable_all == "all" else disable_all
     shared.opts.disable_all_extensions = disable_all
     shared.opts.save(shared.config_filename)
 

@@ -16,8 +16,7 @@ install_dir="$SCRATCH"
 export SD_ROOT="${SD_ROOT:-/sw/hprc/sw/StableDiffusion/latest}"
 export MODELS_ROOT="${MODELS_ROOT:-/sw/hprc/sw/StableDiffusion/models}"
 export LINK_MODELS="Yes"
-export COMMANDLINE_ARGS="$LAN_CMD_ARGS"
-# previous included "--enable-insecure-extension-access"
+export COMMANDLINE_ARGS="$LAN_CMD_ARGS --enable-insecure-extension-access"
 
 # python3 executable
 python_cmd="python3.10"
