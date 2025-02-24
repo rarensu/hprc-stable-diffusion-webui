@@ -1,0 +1,6 @@
+{
+    "quicksettings_list": [
+        "sd_model_checkpoint",
+        "upcast_attn"
+    ]
+}
