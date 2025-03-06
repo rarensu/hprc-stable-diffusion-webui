@@ -10,7 +10,14 @@
 install_dir="$SCRATCH"
 
 # Name of the subdirectory
-#clone_dir="stable-diffusion-webui"
+clone_dir="stable-diffusion-webui"
+
+# Caches for automatic downloads
+export XDG_CACHE_HOME=$install_dir/$clone_dir/cache
+export TRANSFORMERS_CACHE=$install_dir/$clone_dir/cache/transformers
+export HF_HOME=$install_dir/$clone_dir/cache/huggingface
+export MPLCONFIGDIR=$install_dir/$clone_dir/cache/matplotlib
+export PIP_CACHE_DIR=$install_dir/$clone_dir/cache/pip
 
 # Commandline arguments for webui.py, for example: export COMMANDLINE_ARGS="--medvram --opt-split-attention"
 export SD_ROOT="${SD_ROOT:-/sw/hprc/sw/StableDiffusion/latest}"
