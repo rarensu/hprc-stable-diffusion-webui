@@ -201,6 +201,7 @@ else
     printf "\n%s\n" "${delimiter}"
     printf "Clone stable-diffusion-webui"
     printf "\n%s\n" "${delimiter}"
+    git config --global --add safe.directory $SCRIPT_DIR/.git
     "${GIT}" clone $SCRIPT_DIR "${clone_dir}"
     cd "${clone_dir}"/ || { printf "\e[1m\e[31mERROR: Can't cd to %s/%s/, aborting...\e[0m" "${install_dir}" "${clone_dir}"; exit 1; }
     git remote set-url origin https://github.com/AUTOMATIC1111/stable-diffusion-webui.git
